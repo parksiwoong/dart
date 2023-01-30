@@ -1,5 +1,7 @@
 import 'package:dart/dart.dart' as dart;
 
+
+/* if문 for문 switch 등 비슷한건 대부분 넣지않음 (거의 자바랑 동일) */
 void main(List<String> arguments) {
   print('Hello world: ${dart.calculate()}!');
 
@@ -52,9 +54,7 @@ void main(List<String> arguments) {
 /**
  * 비교하는 오퍼레이터
 * ?? 는 변수의 값이 널이면 오른쪽값이 들어갈것이고 변수값이 널이 아니면 넣지않는다는 뜻 */
-int num = 1;
-//print(num++);
-//print(++num);
+
 
 double number = 4.0;
 number ??= 3.0;
@@ -63,5 +63,98 @@ int number1 = 1;
 int number2 = 2;
 print(number1 > number2); // false
 
-  
+/*************************************************************************************************/
+/** 타입 비교 */
+  int number3 = 1;
+print(number3 is int); //인트인지 비교 true
+print(number3 is String); //인트인지 비교 false
+print(number3 is! int); //인트인지 비교 false
+print(number3 is! String); //인트인지 비교 true
+
+/*************************************************************************************************/
+// list
+List<String> pink= ['제니','로제','리사'];
+
+//map
+Map<String,String> dictionary = { 'Harry Poterr' : '해리포터'};
+
+//맵에 추가 2가지
+dictionary.addAll({ 'Spiderman' : '스파이더맨'});
+dictionary['Hulk'] = '헐크';
+
+
+}
+
+/*************************************************************************************************/
+//Enum 사용법
+enum Status{
+  approved,
+  pending
+}
+
+void main1(){
+  Status status = Status.approved;
+
+  if(status == Status.approved){
+    print('승인입니다.');
+  }
+}
+
+/*************************************************************************************************/
+// optional (옵셔널) : 있어도 되고 없어도 되는 파라메터
+// 인트를 선언했지만 안넣으면 되는데 ? 를 넣으면 Null로 해줌
+void main3(){
+  addNumbers(10);
+}
+  // [int y = 20 , int z =30] 디폴트값지정도 가능함 (z를 사용하지않으면 null이 아닌 30으로 시작함)
+addNumbers(int x, [int? y, int? z]){
+  int sum = x + y + z ; // ? 일때는 null + null 이기 떄문에 에러뜸
+}
+
+// named parameter - 이름이 있는 파라메터지만 순서가 상관없는 매개변수
+void main4(){
+  addNumbers1(x: 10, z: 30, y: 20);
+}
+addNumbers1({
+required int x,
+required int y,
+required int z // int z =30 디폴트값으로 넣어도 됨 , (아무것도 넣지않으면 30으로 시작함)
+}){
+  print('x : ${x}');
+}
+
+
+//위에껄 람다식으로 표현
+void main5(){
+  addNumbers1(x: 10, z: 30, y: 20);
+}
+addNumbers2({
+  required int x,
+  required int y,
+  required int z // int z =30 디폴트값으로 넣어도 됨 , (아무것도 넣지않으면 30으로 시작함)
+})=> print('x : ${x}');
+
+/*************************************************************************************************/
+// Typedef 함수랑 비슷하지만 함수에 바디가 없는거
+void main6(){
+ Opertion opertion = add;
+ int result1 = opertion(10,20,30);
+ print(result1);
+}
+typedef Opertion = double Function(int x, int y, int z);
+
+int add(int x, int y ,int z) => x + y + z;
+int subtract(int x, int y ,int d) => x - y - d; //타입이 맞으면 됨
+
+
+//Typedef 좀 더 심화
+void main7(){
+  int result3 = caculate1(10, 20, 30, add2);
+  print(result3);
+}
+typedef Opertion2 = double Function(int x, int y, int z);
+
+int add2(int x, int y ,int z) => x + y + z;
+int caculate1(int x, int y ,int z, Opertion2 opertion2) {
+  opertion2(x , y ,z);
 }
