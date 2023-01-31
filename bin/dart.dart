@@ -118,7 +118,7 @@ void main4(){
 addNumbers1({
 required int x,
 required int y,
-required int z // int z =30 디폴트값으로 넣어도 됨 , (아무것도 넣지않으면 30으로 시작함)
+required int z // int z =30  < 디폴트값으로 넣어도 됨 , (아무것도 넣지않으면 30으로 시작함) >
 }){
   print('x : ${x}');
 }
@@ -131,7 +131,7 @@ void main5(){
 addNumbers2({
   required int x,
   required int y,
-  required int z // int z =30 디폴트값으로 넣어도 됨 , (아무것도 넣지않으면 30으로 시작함)
+  required int z // int z =30 < 디폴트값으로 넣어도 됨 , (아무것도 넣지않으면 30으로 시작함) >
 })=> print('x : ${x}');
 
 /*************************************************************************************************/
@@ -157,4 +157,23 @@ typedef Opertion2 = double Function(int x, int y, int z);
 int add2(int x, int y ,int z) => x + y + z;
 int caculate1(int x, int y ,int z, Opertion2 opertion2) {
   opertion2(x , y ,z);
+}
+
+/*************************************************************************************************/
+/**PART.2  - OOP */
+
+void main8(){
+  IDol blackPink = IDol(); //인스턴스
+  print(blackPink.name);
+}
+class IDol{
+  String name='블랙핑크';
+  List<String> members = ['지수', '제니'];
+  //생성자 생성법
+  IDol(String name, List<String> members)
+    : this.name = name, //this가 뜻하는건 클래스의 name members
+      this.members = members;
+
+  void sayHello(){ print('안녕하세요 블랙핑크입니다.');
+  }
 }
