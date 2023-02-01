@@ -163,8 +163,16 @@ int caculate1(int x, int y ,int z, Opertion2 opertion2) {
 /**PART.2  - OOP */
 
 void main8(){
-  IDol blackPink = IDol(); //인스턴스
+  IDol blackPink = IDol( //인스턴스
+    '블랙핑크',
+    ['지수', '제니']
+  );
   print(blackPink.name);
+
+  IDol bts = IDol.fromList(['RM', '진']);
+
+  print(blackPink.firstMember); //getter  값: 지수   String get firstMember{ ..
+  print(bts.firstMember); //setter 값: RM
 }
 class IDol{
   String name='블랙핑크';
@@ -174,6 +182,22 @@ class IDol{
     : this.name = name, //this가 뜻하는건 클래스의 name members
       this.members = members;
 
+  IDol.fromList(List values)
+    : this.members = values[0],
+      this.name = values[1];
+
   void sayHello(){ print('안녕하세요 블랙핑크입니다.');
+  }
+/*************************************************************************************************/
+//getter , setter 사용방법
+
+  //getter
+  String get firstMember{
+    return this.members[0];
+  }
+
+  //set
+  set firstMember(String name){
+      this.members[0] = name;
   }
 }
