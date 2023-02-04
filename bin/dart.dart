@@ -227,6 +227,13 @@ class _Idols{
 void main10(){
   print('----- Idol ------');
   Idol apink = Idol(name: '에이핑크', membersCount: 5);
+
+  apink.sayMembersCount();
+  apink.sayName();
+
+  BoyGroup bts = BoyGroup('bts', 7);
+  bts.sayMembersCount();
+  bts.name;
 }
 class Idol{
   String name;
