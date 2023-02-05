@@ -282,6 +282,11 @@ class TimesFour extends TimesTwo{
 
   @override
   int calculate(){
-    return super.numberTwo * 4;
+    return super.numberTwo * 4; //2*4 = 8
   }
+  //부모클레스의 카큘레이터 실행하는방법은
+/*  @override
+  int calculate(){
+    return super.calculate() * 2;  // 2*2*2 = 8
+  }*/
 }
