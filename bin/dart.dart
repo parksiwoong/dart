@@ -257,3 +257,31 @@ class BoyGroup extends Idol{
   BoyGroup(String name, int membersCount,): super(name : name, membersCount: membersCount);
 
 }
+/*************************************************************************************************/
+/** 메소드 오버라이딩 *
+ * override - 덮어쓰다 (우선시하다)
+ *
+ */
+void main11(){
+  TimesTwo tt = TimesTwo(2);
+  TimesFour tf = TimesFour(2);
+}
+class TimesTwo {
+  final int numberTwo;
+
+  TimesTwo(
+      this.numberTwo,
+      );
+  int calculate(){
+    return numberTwo * 2;
+  }
+}
+class TimesFour extends TimesTwo{
+ // TimesFour(super.numberTwo);
+  TimesFour(int numberTwo): super(numberTwo);
+
+  @override
+  int calculate(){
+    return super.numberTwo * 4;
+  }
+}
