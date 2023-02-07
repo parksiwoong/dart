@@ -290,3 +290,25 @@ class TimesFour extends TimesTwo{
     return super.calculate() * 2;  // 2*2*2 = 8
   }*/
 }
+/*************************************************************************************************/
+// 인스턴스 구속
+void main12(){
+ Employee seulgi = Employee('슬기');
+ //Employee chorong = Employee('초롱'); Final 일땐 한번 선언해서 초롱을 적으면 변경을 못함
+  seulgi.name = '코드펙토리';
+  Employee.building = '오토타워';
+  seulgi.printNameAndBuilding();
+}
+class Employee{
+  //string 이긴하나 널값이 들어가도 되는거
+  static String? building;
+   //final String name;
+   String name;
+
+   Employee(this.name);
+
+   void printNameAndBuilding(){
+    print('제이름은 $name 입니다. $building 건물에서 근무하고 있습니다. ');
+  }
+}
+
