@@ -312,3 +312,18 @@ class Employee{
   }
 }
 
+/*************************************************************************************************/
+//인터페이스
+void main13(){
+
+}
+class IdolInterface{
+String name;
+IdolInterface(this.name);
+void sayName(){}
+}
+class BoyGroup implements IdolInterface{
+  String name;
+  BoyGroup(this.name);
+  void sayname(){}
+}
